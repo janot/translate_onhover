@@ -95,12 +95,12 @@ function calculatePosition(x, y, $popup) {
   const outerHeight = Number($popup.attr('outer-height'))
 
   // show popup to the right of the word if it fits into window this way
-  if (x + anchor + outerWidth + margin < $(window).width()) {
-    pos.x = x + anchor
+  if (x - anchor - outerWidth - margin > 0) {
+    pos.x = x - anchor - outerWidth
   }
   // show popup to the left of the word if it fits into window this way
-  else if (x - anchor - outerWidth - margin > 0) {
-    pos.x = x - anchor - outerWidth
+  else if (x + anchor + outerWidth + margin < $(window).width()) {
+    pos.x = x + anchor
   }
   // show popup at the very left if it is not wider than window
   else if (outerWidth + margin*2 < $(window).width()) {
